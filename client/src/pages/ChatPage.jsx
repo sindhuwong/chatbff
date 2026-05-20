@@ -89,7 +89,7 @@ export default function ChatPage() {
     <div className="wrap">
       <div className="top-bar">
         <Link to="/">
-          <img src="/logo.png" alt="ChatBFF" className="logo logo-sm" />
+          <img src="/logo.png" alt="ChatBFF" className="logo" />
         </Link>
         <Link to="/">← New chat</Link>
       </div>

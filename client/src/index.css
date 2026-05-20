@@ -45,11 +45,6 @@ body {
   margin: 0 auto 1rem;
 }
 
-.logo-sm {
-  height: clamp(28px, 5vw, 36px);
-  margin: 0;
-}
-
 header {
   text-align: center;
   margin-bottom: 2rem;
@@ -440,7 +435,7 @@ header p,
 .chat-input-row {
   display: flex;
   gap: 0.5rem;
-  padding: 0.65rem 1.25rem 1rem;
+  padding: 0.65rem 1.25rem 0;
 }
 
 .chat-input-row input {
@@ -459,6 +454,25 @@ header p,
 
 .chat-input-row input:disabled {
   opacity: 0.6;
+}
+
+.powered-by {
+  margin: 0;
+  text-align: center;
+  padding: 4px 1.25rem 0.65rem;
+  color: #8b93a1;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.brand-chatbff {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .health-panel {
@@ -561,6 +575,10 @@ header p,
   align-items: center;
   justify-content: space-between;
   margin-bottom: 1.25rem;
+}
+
+.top-bar .logo {
+  margin: 0;
 }
 
 .top-bar a {

@@ -38,6 +38,9 @@ export default function ChatComposer({ input, sending, onInputChange, onSend, on
           Send
         </button>
       </div>
+      <p className="powered-by">
+        Powered by <span className="brand-chatbff">chatBFF</span>
+      </p>
     </div>
   );
 }
