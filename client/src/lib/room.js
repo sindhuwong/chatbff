@@ -33,6 +33,11 @@ export function saveRoom(roomId, data) {
   localStorage.setItem(storageKey(roomId), JSON.stringify(data));
 }
 
+export function reserveHost(roomId) {
+  sessionStorage.setItem(roleSessionKey(roomId), "host");
+  localStorage.setItem(metaKey(roomId), JSON.stringify({ hostClaimed: true }));
+}
+
 export function claimRole(roomId) {
   const cached = sessionStorage.getItem(roleSessionKey(roomId));
   if (cached === "host" || cached === "guest") return cached;

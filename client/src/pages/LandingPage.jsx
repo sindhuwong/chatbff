@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import { generateRoomId } from "../lib/room.js";
+import { useNavigate } from "react-router-dom";
+import { generateRoomId, reserveHost } from "../lib/room.js";
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   const [roomId, setRoomId] = useState(null);
   const [copied, setCopied] = useState(false);
 
@@ -17,6 +18,12 @@ export default function LandingPage() {
     await navigator.clipboard.writeText(chatUrl);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+  }
+
+  function handleOpenChat() {
+    reserveHost(roomId);
+    window.open(`/chat/${roomId}`, "_blank", "noopener,noreferrer");
+    navigate(`/chat/${roomId}`);
   }
 
   return (
@@ -41,11 +48,13 @@ export default function LandingPage() {
                 {copied ? "Copied!" : "Copy"}
               </button>
             </div>
-            <p className="helper-text">Open this link in another tab to test Host + Guest.</p>
+            <p className="helper-text">
+              You&apos;ll join as Host. Open chat launches a Guest tab for testing.
+            </p>
             <div style={{ marginTop: "1rem" }}>
-              <Link to={`/chat/${roomId}`} className="btn btn-secondary open-chat-link">
+              <button type="button" className="btn btn-secondary open-chat-link" onClick={handleOpenChat}>
                 Open chat →
-              </Link>
+              </button>
             </div>
           </div>
         )}
