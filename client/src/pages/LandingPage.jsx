@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { generateRoomId, reserveHost } from "../lib/room.js";
 
 export default function LandingPage() {
@@ -27,19 +27,26 @@ export default function LandingPage() {
   }
 
   return (
-    <div className="wrap">
-      <header>
+    <div className="wrap home-page">
+      <header className="home-header">
         <img src="/logo.png" alt="ChatBFF" className="logo" />
-        <p>AI that helps keep conversations friendly</p>
+        <h1 className="home-headline">Healthy conversations, powered by AI.</h1>
+        <p className="home-subtitle">
+          Create a shareable Host/Guest chat with AI-assisted moderation.
+        </p>
       </header>
 
       <div className="landing-card">
-        <h2>Start a friendly chat</h2>
-        <button type="button" className="btn btn-gradient" onClick={handleCreate}>
-          Create chat link
-        </button>
-
-        {roomId && (
+        {!roomId ? (
+          <div className="home-cta-group">
+            <button type="button" className="btn btn-gradient" onClick={handleCreate}>
+              Start friendly chat
+            </button>
+            <Link to="/api" className="btn btn-secondary home-api-btn">
+              API Docs
+            </Link>
+          </div>
+        ) : (
           <div className="link-result visible">
             <label htmlFor="chatLink">Your chat link</label>
             <div className="link-row">
@@ -51,10 +58,13 @@ export default function LandingPage() {
             <p className="helper-text">
               You&apos;ll join as Host. Open chat launches a Guest tab for testing.
             </p>
-            <div style={{ marginTop: "1rem" }}>
-              <button type="button" className="btn btn-secondary open-chat-link" onClick={handleOpenChat}>
+            <div className="home-cta-group home-cta-group-inline">
+              <button type="button" className="btn btn-gradient open-chat-link" onClick={handleOpenChat}>
                 Open chat →
               </button>
+              <Link to="/api" className="btn btn-secondary home-api-btn">
+                API Docs
+              </Link>
             </div>
           </div>
         )}
