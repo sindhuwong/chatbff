@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 328 242" role="img" aria-label="ChatBFF">
+  <defs>
+    <linearGradient id="bubbleGradient" x1="24" y1="121" x2="304" y2="121" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#2B59FF" />
+      <stop offset="1" stop-color="#42E4C8" />
+    </linearGradient>
+  </defs>
+  <path
+    fill="url(#bubbleGradient)"
+    d="M 96 36 H 272 A 60 60 0 0 1 272 156 H 88 L 52 206 L 68 156 H 96 A 60 60 0 0 1 96 36 Z"
+  />
+  <circle cx="128" cy="96" r="11" fill="#EAF7FF" />
+  <circle cx="164" cy="96" r="11" fill="#EAF7FF" />
+  <circle cx="200" cy="96" r="11" fill="#EAF7FF" />
+</svg>
